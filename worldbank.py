@@ -1,3 +1,3 @@
 from worldbankapp import app
 
-app.run()
+#app.run()
