@@ -53,18 +53,19 @@ def return_figures(countries=country_default):
         '/indicators/' + indicator + '?date=1990:2019&per_page=1000&format=json'
         urls.append(url)
 
-    try:
-        r = requests.get(url)
-        data = r.json()[1]
-    except:
-        print('could not load data ', indicator)
+        try:
+            r = requests.get(url)
+            data = r.json()[1]
+        except:
+            print('could not load data ', indicator)
 
-    #print(data)
-    for i, value in enumerate(data):
-        value['indicator'] = value['indicator']['value']
-        value['country'] = value['country']['value']
+        #print(data)
+        for i, value in enumerate(data):
+            value['indicator'] = value['indicator']['value']
+            value['country'] = value['country']['value']
 
-    data_frames.append(data)
+        data_frames.append(data)
+
   
     # first chart plots Adjusted net national income per capita from 1990 to 2019
     # in top 10 economies 
